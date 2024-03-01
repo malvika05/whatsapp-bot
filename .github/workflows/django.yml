@@ -1,0 +1,13 @@
+from twilio.rest import Client
+
+account_sid = 'your_account_sid'
+auth_token = 'your_auth_token'
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+    body="Hello, this is a message from your bot!",
+    from_='whatsapp:+12345678901',
+    to='whatsapp:+09876543210'
+)
+
+print(message.sid)
